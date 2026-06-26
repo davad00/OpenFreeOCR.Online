@@ -1,8 +1,29 @@
 {
   "name": "openfreeocr",
   "version": "0.1.0",
+  "description": "Free online OCR tool for converting images, screenshots, photos, and scanned documents to copyable text.",
   "private": true,
   "packageManager": "bun@1.3.10",
+  "homepage": "https://openfreeocr.online",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davad00/OpenFreeOCR.Online.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davad00/OpenFreeOCR.Online/issues"
+  },
+  "keywords": [
+    "openfreeocr",
+    "openfreeocr-online",
+    "free-ocr",
+    "free-online-ocr",
+    "online-ocr",
+    "image-to-text",
+    "screenshot-to-text",
+    "photo-to-text",
+    "document-ocr",
+    "nvidia-ocr"
+  ],
   "scripts": {
     "dev": "next dev",
     "typecheck": "tsc --noEmit",

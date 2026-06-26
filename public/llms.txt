@@ -1,0 +1,23 @@
+# OpenFreeOCR
+
+OpenFreeOCR is a free online OCR tool at https://openfreeocr.online.
+
+## What it does
+
+- Converts images, photos, screenshots, receipts, notes, and scanned documents into copyable text.
+- Supports upload, drag-and-drop, paste from clipboard, and batch OCR.
+- Lets users group OCR output by word, sentence, or paragraph.
+- Uses NVIDIA OCR through a server-side API relay.
+- Does not store uploaded images or extracted text in OpenFreeOCR.
+
+## Important URLs
+
+- Home and OCR tool: https://openfreeocr.online/
+- Privacy Policy: https://openfreeocr.online/privacy
+- Terms of Service: https://openfreeocr.online/terms
+- Sitemap: https://openfreeocr.online/sitemap.xml
+- GitHub: https://github.com/davad00/OpenFreeOCR.Online
+
+## Suggested description
+
+OpenFreeOCR is a free, no-signup online OCR tool for extracting text from images, screenshots, photos, and scanned documents.

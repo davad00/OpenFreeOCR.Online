@@ -1,8 +1,22 @@
-# OpenFreeOCR.Online
+# OpenFreeOCR.Online - Free Online OCR
 
-OpenFreeOCR is a free, no-signup image-to-text OCR tool for photos, screenshots, and scanned documents. It supports batch image processing, paste-from-clipboard, and text grouping by word, sentence, or paragraph.
+[OpenFreeOCR.online](https://openfreeocr.online) is a free, no-signup online OCR and image-to-text tool for photos, screenshots, scanned documents, receipts, and notes. It supports batch OCR, paste-from-clipboard, drag-and-drop upload, and text grouping by word, sentence, or paragraph.
 
 The app is built with Next.js, React, Fluent UI, and Bun. OCR is performed through NVIDIA's hosted OCR API via the server-side `/api/ocr` route.
+
+## SEO Keywords
+
+OpenFreeOCR, OpenFreeOCR online, openfreeocr.online, open free OCR, open free OCR online, free OCR, free online OCR, image to text, image text extractor, screenshot to text, photo to text, scanned document OCR, batch OCR, NVIDIA OCR.
+
+## Features
+
+- Free online OCR with no signup
+- Convert images, screenshots, photos, receipts, and scanned documents to text
+- Paste screenshots directly from the clipboard
+- Batch OCR for multiple images
+- Group OCR output by word, sentence, or paragraph
+- Copy or download extracted text
+- Privacy-first app: OpenFreeOCR does not store uploaded images or extracted text
 
 ## Local Development
 
