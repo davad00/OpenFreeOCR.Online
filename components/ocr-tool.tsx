@@ -211,13 +211,6 @@ const useStyles = makeStyles({
     alignItems: 'center',
     gap: tokens.spacingHorizontalXS,
   },
-  supportButton: {
-    '@media (max-width: 520px)': {
-      minWidth: '40px',
-      paddingLeft: tokens.spacingHorizontalS,
-      paddingRight: tokens.spacingHorizontalS,
-    },
-  },
   body: {
     display: 'flex',
     flexGrow: 1,
@@ -303,6 +296,9 @@ const useStyles = makeStyles({
   },
   footerNote: {
     color: tokens.colorNeutralForeground4,
+  },
+  supportFooterButton: {
+    width: '100%',
   },
   supportDialogSurface: {
     display: 'flex',
@@ -1046,16 +1042,6 @@ export function OcrTool() {
           </div>
         </div>
         <div className={styles.topActions}>
-          <Tooltip content="Support on Ko-fi" relationship="label">
-            <Button
-              className={styles.supportButton}
-              appearance="primary"
-              icon={<Heart24Regular />}
-              onClick={() => setSupportOpen(true)}
-            >
-              Support
-            </Button>
-          </Tooltip>
           {doneCount > 0 && (
             <Tooltip content="Download all results as one .txt" relationship="label">
               <Button
@@ -1242,6 +1228,16 @@ export function OcrTool() {
           </div>
 
           <div className={styles.sidebarFooter}>
+            <Tooltip content="Support on Ko-fi" relationship="label">
+              <Button
+                className={styles.supportFooterButton}
+                appearance="primary"
+                icon={<Heart24Regular />}
+                onClick={() => setSupportOpen(true)}
+              >
+                Support OpenFreeOCR
+              </Button>
+            </Tooltip>
             <div className={styles.footerLinks}>
               <Link href="/privacy">Privacy</Link>
               <span aria-hidden>·</span>
