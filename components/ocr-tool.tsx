@@ -21,7 +21,6 @@ import {
   Dropdown,
   Option,
   Field,
-  Link,
   Dialog,
   DialogSurface,
 } from '@fluentui/react-components'
@@ -44,6 +43,8 @@ import {
   Clock20Regular,
   Heart24Regular,
   Dismiss24Regular,
+  ShieldLock20Regular,
+  DocumentBulletList20Regular,
 } from '@fluentui/react-icons'
 import { useThemeMode } from '@/app/providers'
 
@@ -288,17 +289,19 @@ const useStyles = makeStyles({
     borderTopStyle: 'solid',
     borderTopColor: tokens.colorNeutralStroke2,
   },
-  footerLinks: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: tokens.spacingHorizontalXS,
-    color: tokens.colorNeutralForeground3,
-  },
   footerNote: {
     color: tokens.colorNeutralForeground4,
   },
   supportFooterButton: {
     width: '100%',
+  },
+  footerLegalButtons: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: tokens.spacingHorizontalXS,
+  },
+  footerLegalButton: {
+    minWidth: 0,
   },
   supportDialogSurface: {
     display: 'flex',
@@ -1238,10 +1241,25 @@ export function OcrTool() {
                 Support OpenFreeOCR
               </Button>
             </Tooltip>
-            <div className={styles.footerLinks}>
-              <Link href="/privacy">Privacy</Link>
-              <span aria-hidden>·</span>
-              <Link href="/terms">Terms</Link>
+            <div className={styles.footerLegalButtons}>
+              <Button
+                as="a"
+                href="/privacy"
+                className={styles.footerLegalButton}
+                appearance="secondary"
+                icon={<ShieldLock20Regular />}
+              >
+                Privacy
+              </Button>
+              <Button
+                as="a"
+                href="/terms"
+                className={styles.footerLegalButton}
+                appearance="secondary"
+                icon={<DocumentBulletList20Regular />}
+              >
+                Terms
+              </Button>
             </div>
             <Caption1 className={styles.footerNote}>
               © {new Date().getFullYear()} openfreeocr.online · Powered by NVIDIA
