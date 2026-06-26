@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OpenFreeOCR logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08543F"/>
+      <stop offset="1" stop-color="#02130F"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="128" y1="160" x2="384" y2="384" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2DB397"/>
+      <stop offset="1" stop-color="#71D1BC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+
+  <!-- scan frame corners -->
+  <g stroke="url(#ink)" stroke-width="22" stroke-linecap="round">
+    <path d="M150 116H120A40 40 0 0 0 80 156V186"/>
+    <path d="M362 116H392A40 40 0 0 1 432 156V186"/>
+    <path d="M432 326V356A40 40 0 0 1 392 396H362"/>
+    <path d="M150 396H120A40 40 0 0 1 80 356V326"/>
+  </g>
+
+  <!-- text lines -->
+  <g fill="url(#ink)">
+    <rect x="150" y="196" width="212" height="34" rx="17"/>
+    <rect x="150" y="256" width="150" height="34" rx="17" opacity="0.72"/>
+    <rect x="150" y="316" width="184" height="34" rx="17" opacity="0.46"/>
+  </g>
+</svg>
