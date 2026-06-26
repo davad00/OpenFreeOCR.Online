@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
       // The OCR API is a server relay, not a page — keep it out of crawlers.
-      disallow: '/api/',
+      disallow: ['/api/', '/keep-alive'],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,

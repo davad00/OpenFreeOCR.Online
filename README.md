@@ -40,3 +40,5 @@ https://openfreeocr.online
 ```
 
 The app includes Privacy Policy and Terms of Service pages, canonical host redirects, security headers, and no-store API responses for OCR requests.
+
+`/keep-alive` returns `200 ok` as a lightweight health endpoint.

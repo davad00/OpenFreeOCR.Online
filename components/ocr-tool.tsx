@@ -22,6 +22,8 @@ import {
   Option,
   Field,
   Link,
+  Dialog,
+  DialogSurface,
 } from '@fluentui/react-components'
 import {
   ArrowUpload24Regular,
@@ -40,6 +42,8 @@ import {
   CheckmarkCircle20Filled,
   ErrorCircle20Filled,
   Clock20Regular,
+  Heart24Regular,
+  Dismiss24Regular,
 } from '@fluentui/react-icons'
 import { useThemeMode } from '@/app/providers'
 
@@ -136,6 +140,8 @@ type Item = {
 
 const MAX_DIMENSION = 1600
 const CONCURRENCY = 3
+const KOFI_WIDGET_URL =
+  'https://ko-fi.com/openfreeocr/?hidefeed=true&widget=true&embed=true&preview=true'
 
 function borderAll(width: string, style: 'solid' | 'dashed', color: string) {
   return {
@@ -204,6 +210,13 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     gap: tokens.spacingHorizontalXS,
+  },
+  supportButton: {
+    '@media (max-width: 520px)': {
+      minWidth: '40px',
+      paddingLeft: tokens.spacingHorizontalS,
+      paddingRight: tokens.spacingHorizontalS,
+    },
   },
   body: {
     display: 'flex',
@@ -290,6 +303,66 @@ const useStyles = makeStyles({
   },
   footerNote: {
     color: tokens.colorNeutralForeground4,
+  },
+  supportDialogSurface: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalM,
+    width: 'min(460px, calc(100vw - 32px))',
+    maxWidth: '460px',
+    maxHeight: 'calc(100dvh - 32px)',
+    paddingTop: tokens.spacingVerticalM,
+    paddingBottom: tokens.spacingVerticalM,
+    paddingLeft: tokens.spacingHorizontalM,
+    paddingRight: tokens.spacingHorizontalM,
+    borderRadius: tokens.borderRadiusLarge,
+    backgroundColor: tokens.colorNeutralBackground1,
+    boxSizing: 'border-box',
+    overflow: 'hidden',
+  },
+  supportDialogHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: tokens.spacingHorizontalM,
+    flexShrink: 0,
+  },
+  supportDialogTitle: {
+    minWidth: 0,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+  },
+  supportFrameWrap: {
+    width: '100%',
+    height: 'min(712px, calc(100dvh - 112px))',
+    minHeight: '520px',
+    overflow: 'hidden',
+    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: '#f9f9f9',
+    ...borderAll(tokens.strokeWidthThin, 'solid', tokens.colorNeutralStroke2),
+    '@media (max-height: 650px)': {
+      minHeight: '420px',
+    },
+  },
+  supportFrame: {
+    display: 'block',
+    width: '100%',
+    height: '100%',
+    borderTopWidth: '0',
+    borderRightWidth: '0',
+    borderBottomWidth: '0',
+    borderLeftWidth: '0',
+    borderTopStyle: 'none',
+    borderRightStyle: 'none',
+    borderBottomStyle: 'none',
+    borderLeftStyle: 'none',
+    paddingTop: '4px',
+    paddingBottom: '4px',
+    paddingLeft: '4px',
+    paddingRight: '4px',
+    backgroundColor: '#f9f9f9',
+    boxSizing: 'border-box',
   },
   queueItem: {
     display: 'flex',
@@ -673,6 +746,7 @@ export function OcrTool() {
   const [copied, setCopied] = React.useState(false)
   const [notice, setNotice] = React.useState<string | null>(null)
   const [dragActive, setDragActive] = React.useState(false)
+  const [supportOpen, setSupportOpen] = React.useState(false)
 
   const inputRef = React.useRef<HTMLInputElement>(null)
   const itemsRef = React.useRef<Item[]>([])
@@ -972,6 +1046,16 @@ export function OcrTool() {
           </div>
         </div>
         <div className={styles.topActions}>
+          <Tooltip content="Support on Ko-fi" relationship="label">
+            <Button
+              className={styles.supportButton}
+              appearance="primary"
+              icon={<Heart24Regular />}
+              onClick={() => setSupportOpen(true)}
+            >
+              Support
+            </Button>
+          </Tooltip>
           {doneCount > 0 && (
             <Tooltip content="Download all results as one .txt" relationship="label">
               <Button
@@ -1438,6 +1522,37 @@ export function OcrTool() {
           if (inputRef.current) inputRef.current.value = ''
         }}
       />
+
+      <Dialog
+        open={supportOpen}
+        onOpenChange={(_, data) => setSupportOpen(data.open)}
+      >
+        <DialogSurface className={styles.supportDialogSurface}>
+          <div className={styles.supportDialogHeader}>
+            <Body1Strong className={styles.supportDialogTitle}>
+              Support OpenFreeOCR
+            </Body1Strong>
+            <Button
+              appearance="subtle"
+              aria-label="Close support widget"
+              icon={<Dismiss24Regular />}
+              onClick={() => setSupportOpen(false)}
+            />
+          </div>
+          <div className={styles.supportFrameWrap}>
+            <iframe
+              id="kofiframe"
+              src={KOFI_WIDGET_URL}
+              className={styles.supportFrame}
+              height="712"
+              title="openfreeocr"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="payment"
+            />
+          </div>
+        </DialogSurface>
+      </Dialog>
 
       {dragActive && (
         <div className={styles.dragOverlay}>
